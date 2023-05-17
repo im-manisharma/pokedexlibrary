@@ -13,7 +13,7 @@ import com.example.pokedexlibrary.utils.GridSpacingItemDecoration
 import com.example.pokedexlibrary.utils.extentions.toPx
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
-class MainActivity : AppCompatActivity() {
+class PokemonListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPokemonListBinding
     private lateinit var pokemonListAdapter: PokemonListAdapter
 
