@@ -71,7 +71,7 @@ project.afterEvaluate {
                 // values used for local maven repo, jitpack uses github release:
                 groupId 'com.github.im-manisharma'
                 artifactId 'PokedexLibrary'
-                version '0.1.2'
+                version '0.1.3'
             }
         }
     }
