@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pokedexlibrary.R
-import com.example.pokedexlibrary.databinding.ActivityMainBinding
+import com.example.pokedexlibrary.databinding.ActivityPokemonListBinding
 import com.example.pokedexlibrary.presentation.adapters.pokemon_list.PokemonListAdapter
 import com.example.pokedexlibrary.presentation.uistates.PokemonListUiState
 import com.example.pokedexlibrary.presentation.viewmodel.PokemonListViewModel
@@ -14,7 +14,7 @@ import com.example.pokedexlibrary.utils.extentions.toPx
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityPokemonListBinding
     private lateinit var pokemonListAdapter: PokemonListAdapter
 
     private val mViewModel: PokemonListViewModel by lazy {
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_pokemon_list)
         binding.lifecycleOwner = this
 
         initAdapter()
