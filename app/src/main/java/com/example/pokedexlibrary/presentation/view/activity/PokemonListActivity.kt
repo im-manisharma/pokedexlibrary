@@ -10,6 +10,9 @@ import com.example.pokedexlibrary.presentation.adapters.pokemon_list.PokemonList
 import com.example.pokedexlibrary.presentation.uistates.PokemonListUiState
 import com.example.pokedexlibrary.presentation.viewmodel.PokemonListViewModel
 import com.example.pokedexlibrary.utils.GridSpacingItemDecoration
+import com.example.pokedexlibrary.utils.extentions.doGone
+import com.example.pokedexlibrary.utils.extentions.doVisible
+import com.example.pokedexlibrary.utils.extentions.showToastMsg
 import com.example.pokedexlibrary.utils.extentions.toPx
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -48,6 +51,7 @@ class PokemonListActivity : AppCompatActivity() {
             when (it) {
                 is PokemonListUiState.Loading -> {
                     Log.e("MainActivity", "loading")
+                    binding.progress.progressBar.doVisible()
                 }
 
                 is PokemonListUiState.Success -> {
@@ -55,10 +59,13 @@ class PokemonListActivity : AppCompatActivity() {
                     it.pokemonList?.let { list ->
                         pokemonListAdapter.submitList(list)
                     }
+                    binding.progress.progressBar.doGone()
                 }
 
                 is PokemonListUiState.Error -> {
                     Log.e("MainActivity", "error : ${it.message}")
+                    showToastMsg(it.message)
+                    binding.progress.progressBar.doGone()
                 }
             }
         }
